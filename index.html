@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlowQueen - Header</title>
+    
+    <!-- 
+      Importación de fuentes desde Google Fonts para replicar el diseño del PDF.
+      - 'Playfair Display' para el logo, que le da un toque elegante y de "marca".
+      - 'Inter' para el resto de la UI, por su excelente legibilidad y aspecto moderno.
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
+ 
+    <style>
+        /* --- RESET Y ESTILOS GENERALES --- */
+        
+        body, h1, h2, h3, p, ul {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif; /* Fuente principal para la UI */
+            background-color: #FEFBF6; /* Fondo de página cálido y suave */
+        }
+
+        /* --- ESTRUCTURA PRINCIPAL DEL HEADER --- */
+        
+        .site-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 80px; /* Espaciado generoso como en diseños premium */
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #F0F0F0;
+        }
+
+        /* --- LOGO --- */
+        
+        .site-header__logo a {
+            font-family: 'Playfair Display', serif; /* Fuente especial para el logo */
+            font-size: 28px;
+            font-weight: 700;
+            text-decoration: none;
+            color: #222222;
+        }
+
+        /* --- NAVEGACIÓN PRINCIPAL --- */
+
+        .site-header__nav ul {
+            list-style: none;
+            display: flex;
+            gap: 50px; /* Espacio amplio entre elementos del menú */
+        }
+
+        .site-header__nav a {
+            text-decoration: none;
+            color: #555555;
+            font-size: 16px;
+            font-weight: 500;
+            padding-bottom: 8px;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        /* Estilo para el enlace activo (Home en el PDF) */
+        .site-header__nav a.active {
+            color: #7B61FF; /* Color de acento principal */
+            font-weight: 700;
+        }
+
+        .site-header__nav a.active::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #7B61FF;
+        }
+
+
+        /* --- SECCIÓN DE ACCIONES (BOTONES) --- */
+
+        .site-header__actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .button {
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 12px 28px;
+            border-radius: 12px; /* Bordes redondeados para un look moderno */
+            transition: all 0.3s ease;
+        }
+        
+        /* Botón secundario (Sign In) */
+        .button--secondary {
+            color: #555555;
+            background-color: transparent;
+        }
+
+        /* Botón principal (Sign Up) */
+        .button--primary {
+            color: #ffffff;
+            background-color: #7B61FF; /* Color de acento principal */
+            box-shadow: 0 4px 15px rgba(123, 97, 255, 0.25);
+        }
+        
+        /* --- INTERACTIVIDAD (ESTADOS :hover) --- */
+
+        .site-header__nav a:not(.active):hover {
+            color: #7B61FF;
+        }
+
+        .button--secondary:hover {
+            color: #000000;
+        }
+        
+        .button--primary:hover {
+            background-color: #6a52e0; /* Tono más oscuro al pasar el ratón */
+            transform: translateY(-2px); /* Eleva ligeramente el botón */
+            box-shadow: 0 6px 20px rgba(123, 97, 255, 0.3);
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        
+        <div class="site-header__logo">
+            <a href="#">GlowQueen</a>
+        </div>
+
+        <nav class="site-header__nav">
+            <ul>
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Facilities</a></li>
+                <li><a href="#">More</a></li>
+            </ul>
+        </nav>
+
+        <div class="site-header__actions">
+            <a href="#" class="button button--secondary">Sign In</a>
+            <a href="#" class="button button--primary">Sign Up</a>
+        </div>
+
+    </header>
+
+    <main style="padding: 50px 80px;">
+        <h1>Bring back the beauty and glow of your skin</h1>
+        <p style="margin-top: 10px; max-width: 500px; color: #555;">We provide you various treatments from head to toe using the best product, advanced technology, and affordable price.</p>
+    </main>
+
+</body>
+</html>
