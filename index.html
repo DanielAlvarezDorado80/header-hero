@@ -3,131 +3,296 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GlowQueen - Header</title>
+    <title>GlowQueen - Spa & Beauty</title>
     
-    <!-- 
-      Importación de fuentes desde Google Fonts para replicar el diseño del PDF.
-      - 'Playfair Display' para el logo, que le da un toque elegante y de "marca".
-      - 'Inter' para el resto de la UI, por su excelente legibilidad y aspecto moderno.
-    -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
- 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Prata&display=swap" rel="stylesheet">
+
     <style>
-        /* --- RESET Y ESTILOS GENERALES --- */
-        
-        body, h1, h2, h3, p, ul {
+        /* ------------------- */
+        /* VARIABLES (como en SASS) */
+        /* ------------------- */
+        :root {
+            --color-primary: #F29995;
+            --color-primary-dark: #e88a85;
+            --color-text-dark: #242424;
+            --color-text-light: #525252;
+            --color-background: #FEF8F4;
+            --color-white: #FFFFFF;
+            --color-border: #EAEAEA;
+            --font-heading: 'Prata', serif;
+            --font-body: 'Poppins', sans-serif;
+            --container-width: 1200px;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+        }
+
+        /* ------------------- */
+        /* RESET Y ESTILOS BASE */
+        /* ------------------- */
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
         body {
-            font-family: 'Inter', sans-serif; /* Fuente principal para la UI */
-            background-color: #FEFBF6; /* Fondo de página cálido y suave */
+            font-family: var(--font-body);
+            background-color: var(--color-background);
+            color: var(--color-text-dark);
+            line-height: 1.7;
+            font-size: 16px;
         }
 
-        /* --- ESTRUCTURA PRINCIPAL DEL HEADER --- */
-        
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        button {
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        h1 {
+            font-family: var(--font-heading);
+            font-size: 56px;
+            line-height: 1.25;
+            color: var(--color-text-dark);
+            font-weight: 400;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ------------------- */
+        /* BOTONES */
+        /* ------------------- */
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .btn-primary {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--color-primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-secondary {
+            background-color: var(--color-white);
+            color: var(--color-primary);
+            border-color: var(--color-primary);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+        }
+
+        /* ------------------- */
+        /* HEADER */
+        /* ------------------- */
         .site-header {
+            padding: 25px 0;
+        }
+
+        .header-inner {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 80px; /* Espaciado generoso como en diseños premium */
-            background-color: #FFFFFF;
-            border-bottom: 1px solid #F0F0F0;
         }
 
-        /* --- LOGO --- */
-        
-        .site-header__logo a {
-            font-family: 'Playfair Display', serif; /* Fuente especial para el logo */
+        .logo a {
+            font-family: var(--font-heading);
             font-size: 28px;
-            font-weight: 700;
-            text-decoration: none;
-            color: #222222;
+            font-weight: 400;
         }
 
-        /* --- NAVEGACIÓN PRINCIPAL --- */
-
-        .site-header__nav ul {
-            list-style: none;
+        .main-nav ul {
             display: flex;
-            gap: 50px; /* Espacio amplio entre elementos del menú */
+            gap: 40px;
         }
 
-        .site-header__nav a {
-            text-decoration: none;
-            color: #555555;
-            font-size: 16px;
-            font-weight: 500;
-            padding-bottom: 8px;
-            position: relative;
-            transition: color 0.3s ease;
-        }
-        
-        /* Estilo para el enlace activo (Home en el PDF) */
-        .site-header__nav a.active {
-            color: #7B61FF; /* Color de acento principal */
-            font-weight: 700;
+        .main-nav a {
+            color: var(--color-text-light);
         }
 
-        .site-header__nav a.active::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: #7B61FF;
+        .main-nav a:hover {
+            color: var(--color-primary);
         }
 
-
-        /* --- SECCIÓN DE ACCIONES (BOTONES) --- */
-
-        .site-header__actions {
+        .header-actions {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 16px;
+        }
+        
+        .search-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
         }
 
-        .button {
-            text-decoration: none;
-            font-size: 16px;
-            font-weight: 600;
-            padding: 12px 28px;
-            border-radius: 12px; /* Bordes redondeados para un look moderno */
+        .search-btn:hover {
+            background-color: #fdeee9;
+        }
+
+        .search-btn svg path {
+            stroke: var(--color-text-dark);
+        }
+
+        /* ------------------- */
+        /* HERO SECTION */
+        /* ------------------- */
+        .hero {
+            padding: 60px 0;
+        }
+
+        .hero-inner {
+            display: flex;
+            align-items: flex-start;
+            gap: 60px;
+        }
+
+        .hero-content {
+            flex: 1;
+            padding-top: 20px;
+        }
+
+        .hero-content > p {
+            font-size: 18px;
+            color: var(--color-text-light);
+            margin: 24px 0 40px;
+            max-width: 480px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .btn-video {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 500;
+            color: var(--color-text-dark);
+        }
+
+        .btn-video .play-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background-color: var(--color-white);
+            box-shadow: var(--shadow);
             transition: all 0.3s ease;
         }
-        
-        /* Botón secundario (Sign In) */
-        .button--secondary {
-            color: #555555;
-            background-color: transparent;
-        }
 
-        /* Botón principal (Sign Up) */
-        .button--primary {
-            color: #ffffff;
-            background-color: #7B61FF; /* Color de acento principal */
-            box-shadow: 0 4px 15px rgba(123, 97, 255, 0.25);
+        .btn-video:hover .play-icon {
+             transform: scale(1.1);
+             box-shadow: 0 15px 30px rgba(0,0,0,0.1);
         }
         
-        /* --- INTERACTIVIDAD (ESTADOS :hover) --- */
-
-        .site-header__nav a:not(.active):hover {
-            color: #7B61FF;
+        .btn-video:hover {
+            color: var(--color-primary);
         }
 
-        .button--secondary:hover {
-            color: #000000;
+        .testimonials {
+            display: flex;
+            gap: 20px;
+            border-left: 3px solid var(--color-primary);
+            padding-left: 24px;
         }
-        
-        .button--primary:hover {
-            background-color: #6a52e0; /* Tono más oscuro al pasar el ratón */
-            transform: translateY(-2px); /* Eleva ligeramente el botón */
-            box-shadow: 0 6px 20px rgba(123, 97, 255, 0.3);
+
+        .testimonial-card {
+            background-color: var(--color-white);
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            padding: 20px;
+            max-width: 250px;
+            font-size: 14px;
+        }
+
+        .testimonial-card p {
+            color: var(--color-text-light);
+            margin-bottom: 15px;
+        }
+
+        .testimonial-card footer {
+            font-style: normal;
+            font-weight: 600;
+            color: var(--color-text-dark);
+        }
+
+        .hero-image-wrapper {
+            flex: 1;
+            position: relative;
+            max-width: 520px;
+        }
+
+        .hero-image-wrapper img {
+            width: 100%;
+            border-radius: 16px;
+            display: block;
+        }
+
+        .stats {
+            position: absolute;
+            bottom: -40px;
+            left: -40px;
+            background-color: var(--color-white);
+            border-radius: 12px;
+            padding: 25px 35px;
+            display: flex;
+            gap: 45px;
+            box-shadow: var(--shadow);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: var(--font-heading);
+            font-size: 32px;
+            color: var(--color-primary);
+            display: block;
+            line-height: 1.1;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: var(--color-text-light);
         }
 
     </style>
@@ -135,31 +300,82 @@
 <body>
 
     <header class="site-header">
-        
-        <div class="site-header__logo">
-            <a href="#">GlowQueen</a>
+        <div class="container header-inner">
+            <div class="logo">
+                <a href="#">GlowQueen</a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Facilities</a></li>
+                    <li><a href="#">More</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="search-btn" aria-label="Buscar">
+                    <!-- Icono SVG de búsqueda -->
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M21 21L16.65 16.65" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <a href="#" class="btn btn-secondary">Sign In</a>
+                <a href="#" class="btn btn-primary">Sign Up</a>
+            </div>
         </div>
-
-        <nav class="site-header__nav">
-            <ul>
-                <li><a href="#" class="active">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Facilities</a></li>
-                <li><a href="#">More</a></li>
-            </ul>
-        </nav>
-
-        <div class="site-header__actions">
-            <a href="#" class="button button--secondary">Sign In</a>
-            <a href="#" class="button button--primary">Sign Up</a>
-        </div>
-
     </header>
 
-    <main style="padding: 50px 80px;">
-        <h1>Bring back the beauty and glow of your skin</h1>
-        <p style="margin-top: 10px; max-width: 500px; color: #555;">We provide you various treatments from head to toe using the best product, advanced technology, and affordable price.</p>
+    <main>
+        <section class="hero">
+            <div class="container hero-inner">
+                <div class="hero-content">
+                    <h1>Bring back the beauty and glow of your skin</h1>
+                    <p>We provide you various treatments from head to toe using the best product, advanced technology, and affordable price</p>
+                    <div class="hero-buttons">
+                        <a href="#" class="btn btn-primary">Book Now</a>
+                        <a href="#" class="btn-video">
+                            <span class="play-icon">
+                                <!-- Icono SVG de reproducción -->
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--color-primary)" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 3L19 12L5 21V3Z" stroke="var(--color-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                            Watch Video
+                        </a>
+                    </div>
+                    <div class="testimonials">
+                        <blockquote class="testimonial-card">
+                            <p>"I have a regular schedule to take treatment from GlowQueen, they gave me the best service..."</p>
+                            <footer>Sophia Princeton</footer>
+                        </blockquote>
+                        <blockquote class="testimonial-card">
+                            <p>"For the past few years, I've had a hard time finding the right place for skin care..."</p>
+                            <footer>Tamara Jules</footer>
+                        </blockquote>
+                    </div>
+                </div>
+                <div class="hero-image-wrapper">
+                    <!-- Reemplaza este src con la ruta a tu imagen exportada de Figma -->
+                    <img src="/img/hero-image.png" alt="Mujer sonriendo con piel radiante después de un tratamiento de spa">
+                    <div class="stats">
+                        <div class="stat-item">
+                            <span class="stat-number">15+</span>
+                            <span class="stat-label">Special<br>Treatment</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">25+</span>
+                            <span class="stat-label">Professional<br>Therapist</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">Herbal Cream<br>Formula</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
 </body>

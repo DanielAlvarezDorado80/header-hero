@@ -1,0 +1,51 @@
+.site-header {
+    background-color: $background-color;
+    padding: 20px 0;
+
+    .header-container {
+        max-width: $container-width;
+        margin: 0 auto;
+        padding: 0 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo a {
+        font-family: $font-heading;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .main-nav ul {
+        display: flex;
+        gap: 30px;
+
+        li a {
+            font-size: 16px;
+            color: $light-text;
+            transition: color 0.3s ease;
+            &:hover {
+                color: $primary-color;
+            }
+        }
+    }
+
+    .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .search-btn {
+        padding: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        transition: background-color 0.3s ease;
+        &:hover {
+            background-color: lighten($primary-color, 15%);
+        }
+    }
+}
