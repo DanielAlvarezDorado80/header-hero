@@ -2,11 +2,11 @@
         /* VARIABLES (como en SASS) */
         /* ------------------- */
         :root {
-            --color-primary: #F29995;
-            --color-primary-dark: #e88a85;
+            --color-primary: #95d8f2;
+            --color-primary-dark: #8edff3;
             --color-text-dark: #242424;
             --color-text-light: #525252;
-            --color-background: #FEF8F4;
+            --color-background: #2ef0f0;
             --color-white: #FFFFFF;
             --color-border: #EAEAEA;
             --font-heading: 'Prata', serif;
