@@ -1,247 +1,283 @@
-/*! HTML5 Boilerplate v9.0.1 | MIT License | https://html5boilerplate.com/ */
+/* ------------------- */
+        /* VARIABLES (como en SASS) */
+        /* ------------------- */
+        :root {
+            --color-primary: #F29995;
+            --color-primary-dark: #e88a85;
+            --color-text-dark: #242424;
+            --color-text-light: #525252;
+            --color-background: #FEF8F4;
+            --color-white: #FFFFFF;
+            --color-border: #EAEAEA;
+            --font-heading: 'Prata', serif;
+            --font-body: 'Poppins', sans-serif;
+            --container-width: 1200px;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+        }
 
-/* main.css 3.0.0 | MIT License | https://github.com/h5bp/main.css#readme */
-/*
- * What follows is the result of much research on cross-browser styling.
- * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
- * Kroc Camen, and the H5BP dev community and team.
- */
+        /* ------------------- */
+        /* RESET Y ESTILOS BASE */
+        /* ------------------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-/* ==========================================================================
-   Base styles: opinionated defaults
-   ========================================================================== */
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-background);
+            color: var(--color-text-dark);
+            line-height: 1.7;
+            font-size: 16px;
+        }
 
-html {
-  color: #222;
-  font-size: 1em;
-  line-height: 1.4;
-}
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
 
-/*
- * Remove text-shadow in selection highlight:
- * https://twitter.com/miketaylr/status/12228805301
- *
- * Customize the background color to match your design.
- */
+        ul {
+            list-style: none;
+        }
 
-::-moz-selection {
-  background: #b3d4fc;
-  text-shadow: none;
-}
+        button {
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
 
-::selection {
-  background: #b3d4fc;
-  text-shadow: none;
-}
+        h1 {
+            font-family: var(--font-heading);
+            font-size: 56px;
+            line-height: 1.25;
+            color: var(--color-text-dark);
+            font-weight: 400;
+        }
 
-/*
- * A better looking default horizontal rule
- */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-hr {
-  display: block;
-  height: 1px;
-  border: 0;
-  border-top: 1px solid #ccc;
-  margin: 1em 0;
-  padding: 0;
-}
+        /* ------------------- */
+        /* BOTONES */
+        /* ------------------- */
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
 
-/*
- * Remove the gap between audio, canvas, iframes,
- * images, videos and the bottom of their containers:
- * https://github.com/h5bp/html5-boilerplate/issues/440
- */
+        .btn-primary {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+        }
 
-audio,
-canvas,
-iframe,
-img,
-svg,
-video {
-  vertical-align: middle;
-}
+        .btn-primary:hover {
+            background-color: var(--color-primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
 
-/*
- * Remove default fieldset styles.
- */
+        .btn-secondary {
+            background-color: var(--color-white);
+            color: var(--color-primary);
+            border-color: var(--color-primary);
+        }
 
-fieldset {
-  border: 0;
-  margin: 0;
-  padding: 0;
-}
+        .btn-secondary:hover {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+        }
 
-/*
- * Allow only vertical resizing of textareas.
- */
+        /* ------------------- */
+        /* HEADER */
+        /* ------------------- */
+        .site-header {
+            padding: 25px 0;
+        }
 
-textarea {
-  resize: vertical;
-}
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-/* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
+        .logo a {
+            font-family: var(--font-heading);
+            font-size: 28px;
+            font-weight: 400;
+        }
 
-/* ==========================================================================
-   Helper classes
-   ========================================================================== */
+        .main-nav ul {
+            display: flex;
+            gap: 40px;
+        }
 
-/*
- * Hide visually and from screen readers
- */
+        .main-nav a {
+            color: var(--color-text-light);
+        }
 
-.hidden,
-[hidden] {
-  display: none !important;
-}
+        .main-nav a:hover {
+            color: var(--color-primary);
+        }
 
-/*
- * Hide only visually, but have it available for screen readers:
- * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
- *
- * 1. For long content, line feeds are not interpreted as spaces and small width
- *    causes content to wrap 1 word per line:
- *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
- */
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        
+        .search-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
 
-.visually-hidden {
-  border: 0;
-  clip: rect(0, 0, 0, 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-  /* 1 */
-}
+        .search-btn:hover {
+            background-color: #fdeee9;
+        }
 
-/*
- * Extends the .visually-hidden class to allow the element
- * to be focusable when navigated to via the keyboard:
- * https://www.drupal.org/node/897638
- */
+        .search-btn svg path {
+            stroke: var(--color-text-dark);
+        }
 
-.visually-hidden.focusable:active,
-.visually-hidden.focusable:focus {
-  clip: auto;
-  height: auto;
-  margin: 0;
-  overflow: visible;
-  position: static;
-  white-space: inherit;
-  width: auto;
-}
+        /* ------------------- */
+        /* HERO SECTION */
+        /* ------------------- */
+        .hero {
+            padding: 60px 0;
+        }
 
-/*
- * Hide visually and from screen readers, but maintain layout
- */
+        .hero-inner {
+            display: flex;
+            align-items: flex-start;
+            gap: 60px;
+        }
 
-.invisible {
-  visibility: hidden;
-}
+        .hero-content {
+            flex: 1;
+            padding-top: 20px;
+        }
 
-/*
- * Clearfix: contain floats
- *
- * The use of `table` rather than `block` is only necessary if using
- * `::before` to contain the top-margins of child elements.
- */
+        .hero-content > p {
+            font-size: 18px;
+            color: var(--color-text-light);
+            margin: 24px 0 40px;
+            max-width: 480px;
+        }
 
-.clearfix::before,
-.clearfix::after {
-  content: "";
-  display: table;
-}
+        .hero-buttons {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            margin-bottom: 60px;
+        }
 
-.clearfix::after {
-  clear: both;
-}
+        .btn-video {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 500;
+            color: var(--color-text-dark);
+        }
 
-/* ==========================================================================
-   EXAMPLE Media Queries for Responsive Design.
-   These examples override the primary ('mobile first') styles.
-   Modify as content requires.
-   ========================================================================== */
+        .btn-video .play-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background-color: var(--color-white);
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
 
-@media only screen and (min-width: 35em) {
-  /* Style adjustments for viewports that meet the condition */
-}
+        .btn-video:hover .play-icon {
+             transform: scale(1.1);
+             box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .btn-video:hover {
+            color: var(--color-primary);
+        }
 
-@media print,
-  (-webkit-min-device-pixel-ratio: 1.25),
-  (min-resolution: 1.25dppx),
-  (min-resolution: 120dpi) {
-  /* Style adjustments for high resolution devices */
-}
+        .testimonials {
+            display: flex;
+            gap: 20px;
+            border-left: 3px solid var(--color-primary);
+            padding-left: 24px;
+        }
 
-/* ==========================================================================
-   Print styles.
-   Inlined to avoid the additional HTTP request:
-   https://www.phpied.com/delay-loading-your-print-css/
-   ========================================================================== */
+        .testimonial-card {
+            background-color: var(--color-white);
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            padding: 20px;
+            max-width: 250px;
+            font-size: 14px;
+        }
 
-@media print {
-  *,
-  *::before,
-  *::after {
-    background: #fff !important;
-    color: #000 !important;
-    /* Black prints faster */
-    box-shadow: none !important;
-    text-shadow: none !important;
-  }
+        .testimonial-card p {
+            color: var(--color-text-light);
+            margin-bottom: 15px;
+        }
 
-  a,
-  a:visited {
-    text-decoration: underline;
-  }
+        .testimonial-card footer {
+            font-style: normal;
+            font-weight: 600;
+            color: var(--color-text-dark);
+        }
 
-  a[href]::after {
-    content: " (" attr(href) ")";
-  }
+        .hero-image-wrapper {
+            flex: 1;
+            position: relative;
+            max-width: 520px;
+        }
 
-  abbr[title]::after {
-    content: " (" attr(title) ")";
-  }
+        .hero-image-wrapper img {
+            width: 100%;
+            border-radius: 16px;
+            display: block;
+        }
 
-  /*
-   * Don't show links that are fragment identifiers,
-   * or use the `javascript:` pseudo protocol
-   */
-  a[href^="#"]::after,
-  a[href^="javascript:"]::after {
-    content: "";
-  }
+        .stats {
+            position: absolute;
+            bottom: -40px;
+            left: -40px;
+            background-color: var(--color-white);
+            border-radius: 12px;
+            padding: 25px 35px;
+            display: flex;
+            gap: 45px;
+            box-shadow: var(--shadow);
+        }
 
-  pre {
-    white-space: pre-wrap !important;
-  }
+        .stat-item {
+            text-align: center;
+        }
 
-  pre,
-  blockquote {
-    border: 1px solid #999;
-    page-break-inside: avoid;
-  }
+        .stat-number {
+            font-family: var(--font-heading);
+            font-size: 32px;
+            color: var(--color-primary);
+            display: block;
+            line-height: 1.1;
+        }
 
-  tr,
-  img {
-    page-break-inside: avoid;
-  }
-
-  p,
-  h2,
-  h3 {
-    orphans: 3;
-    widows: 3;
-  }
-
-  h2,
-  h3 {
-    page-break-after: avoid;
-  }
-}
-
+        .stat-label {
+            font-size: 14px;
+            color: var(--color-text-light);
+        }
